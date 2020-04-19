@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import '../css/app.scss'
+import '../css/style.scss'
 
-class Header extends React.Component{
-  render(){
-    return(
+const Header = props => (
+
       <div className="header">
         <div className="grid">
           <div className="start">
 
           </div>
           <div className="end">
-            <a href="/">Login</a>
-            <a href="/">Register</a>
+            {props.nickname ?(
+              <span className="nickname">
+                <i className="far fa-user"></i>
+                {props.nickname}
+              </span>
+            ):(
+              <Fragment>
+                <a href = "/">Login</a>
+                <a href = "/">Register</a>
+              </Fragment>
+            )}
           </div>
 
         </div>
       </div>
-    )
-  }
-}
+    
+)
 
 export default Header;

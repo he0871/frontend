@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header'
-import Products from './Products'
+import Header from '../component/Header'
+import Products from '../component/Products'
 class App extends React.Component{
   render(){
     return(
