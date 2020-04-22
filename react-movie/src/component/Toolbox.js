@@ -3,6 +3,29 @@ import '../css/app.scss'
 import '../css/style.scss'
 
 class Toolbox extends React.Component{
+
+    state = {
+        searchText : ''
+    }
+
+    handleChange = event =>{
+        const value = event.target.value;
+        this.setState({
+            searchText: value
+        });
+        this.props.search(value);
+    };
+
+    clearSearchText = () =>{
+        this.setState({
+            searchText: ''
+        });
+        this.props.search('');
+    };
+
+
+    
+
     render(){
         return(
             <div className='tool-box'>
@@ -13,9 +36,15 @@ class Toolbox extends React.Component{
                             <input 
                             type="text" 
                             className="search-input" 
-                            placeholder="Search product"/>
+                            placeholder="Search product"
+                            value={this.state.searchText}
+                            onChange={this.handleChange}
+                            />
                         </div>
-                        <div className="control">
+                        <div 
+                        className="control"
+                        onClick={this.clearSearchText}
+                        >
                             <button className="button">x</button>
                         </div>
                     </div>
