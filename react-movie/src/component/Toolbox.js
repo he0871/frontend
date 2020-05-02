@@ -1,11 +1,12 @@
 import React from 'react';
 import '../css/app.scss'
 import '../css/style.scss'
+import { withRouter } from "react-router";
 
 class Toolbox extends React.Component{
 
     state = {
-        searchText : ''
+        searchText : '',
     }
 
     handleChange = event =>{
@@ -23,7 +24,9 @@ class Toolbox extends React.Component{
         this.props.search('');
     };
 
-
+    goCart = () =>{
+        this.props.history.push('/cart')
+    }
     
 
     render(){
@@ -49,9 +52,9 @@ class Toolbox extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div className="cart-box">
+                <div className="cart-box" onClick={this.goCart}>
                     <i className="fas fa-shopping-cart"></i>
-                    <span className="cart-num">(0)</span>
+        <span className="cart-num">({this.props.cartNum})</span>
                 </div>
                 
             </div>
@@ -59,4 +62,4 @@ class Toolbox extends React.Component{
     }
 }
 
-export default Toolbox
+export default withRouter(Toolbox)

@@ -1,13 +1,12 @@
 import React from 'react';
-import Header from '../component/Header'
+import Layout from '../Layout'
 import Products from '../component/Products'
 class App extends React.Component{
   render(){
     return(
-      <div className="main">
-        <Header nickname="admin"/>
+      <Layout>
         <Products/>
-      </div>
+      </Layout>
     )
   }
 }
