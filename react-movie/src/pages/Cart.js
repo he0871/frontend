@@ -5,12 +5,12 @@ import axios from '../commons/axios';
 import {formatPrice} from '../commons/helper'
 
 
-const Cart =  async() =>{
+const Cart =  () =>{
     const [carts, setCarts] = useState([]);
 
     useEffect(()=>{
-        axios.get('/carts').then(res=> setCarts(res.data));
-    })
+        axios.get('/carts').then(res=> setCarts(res.data))
+    },[])
 
     const totalPrice = () =>{
         const totalprice = carts.map(cart => cart.mount * parseInt(cart.price))
@@ -22,8 +22,7 @@ const Cart =  async() =>{
         <div className="cart-page">
             <span className="cart-title">Shopping Cart</span>
             <div className="cart-list">
-             {
-                    carts.map(cart=> (
+             {carts.map(cart=> (
                     <CartItem key={cart.id} cart={cart}/>
                     ))
                 }

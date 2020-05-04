@@ -2,7 +2,7 @@ import React from 'react'
 import { formatPrice } from '../commons/helper'
 
 const CartItem = props => {
-    const {name, image, price, mount} = props.carts || {}
+    const {name, image, price, mount} = props.cart || {}
     const sumPrice = formatPrice(mount * parseInt(price))
 
     return (
